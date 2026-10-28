@@ -1,0 +1,155 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+ * Base Layer —— 全局基础样式
+ * ======================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-sans leading-relaxed;
+    min-height: 100vh;
+  }
+
+  /* 无障碍：清晰的键盘焦点指示器 */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+    outline-style: solid;
+  }
+
+  /* 选中文字样式 */
+  ::selection {
+    @apply bg-accent/30 text-text-primary;
+  }
+
+  /* 滚动条样式（WebKit） */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(230, 234, 242, 0.15);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 234, 242, 0.25);
+  }
+}
+
+/* ========================================
+ * Components Layer —— 可复用组件类
+ * ======================================== */
+@layer components {
+  /* 卡片基础样式 */
+  .card {
+    @apply bg-bg-card border border-border rounded-card p-6;
+    @apply transition-all duration-200 ease-in-out;
+    box-shadow: var(--shadow-card);
+  }
+  .card:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(56, 189, 248, 0.2);
+  }
+
+  /* 主按钮 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-6 py-3 rounded-button font-semibold text-white;
+    @apply bg-gradient-to-r from-accent to-accent-purple;
+    @apply transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply opacity-90;
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-primary:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  /* 次按钮 */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-6 py-3 rounded-button font-semibold text-accent;
+    @apply border border-accent bg-transparent;
+    @apply transition-all duration-200;
+  }
+  .btn-secondary:hover {
+    @apply bg-accent/10;
+  }
+  .btn-secondary:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  /* 区块标题 */
+  .section-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary;
+    @apply pl-4 border-l-4 border-accent;
+  }
+
+  /* 区块容器 */
+  .section-container {
+    @apply max-w-content mx-auto;
+    @apply py-16 sm:py-20 lg:py-24;
+    padding-left: var(--spacing-content-padding);
+    padding-right: var(--spacing-content-padding);
+  }
+
+  /* 响应式网格 */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  /* 标签胶囊 */
+  .tag {
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-button;
+    @apply bg-accent/10 text-accent;
+  }
+}
+
+/* ========================================
+ * Utilities Layer —— 工具类
+ * ======================================== */
+@layer utilities {
+  /* 毛玻璃效果 */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+
+  /* 文字渐变 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-accent), var(--color-accent-purple));
+  }
+
+  /* 屏幕阅读器专用（无障碍） */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+}
+
+/* ========================================
+ * 减弱动画支持（无障碍）
+ * ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

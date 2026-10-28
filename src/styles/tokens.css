@@ -1,0 +1,54 @@
+/* ========================================
+ * 设计 Token（CSS 变量）
+ * 供 Canvas / JS 动态读取，以及非 Tailwind 场景使用
+ * ======================================== */
+
+:root {
+  /* 颜色 */
+  --color-bg-primary: #080F1A;
+  --color-bg-secondary: #0D1321;
+  --color-bg-card: #111827;
+  --color-text-primary: #E6EAF2;
+  --color-text-secondary: #94A3B8;
+  --color-accent: #38BDF8;
+  --color-accent-purple: #818CF8;
+  --color-success: #34D399;
+  --color-border: rgba(230, 234, 242, 0.08);
+
+  /* 间距 */
+  --spacing-section: 96px;
+  --spacing-card: 24px;
+  --spacing-content-padding: 24px;
+
+  /* 圆角 */
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --radius-modal: 20px;
+
+  /* 阴影 */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --shadow-navbar: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.15);
+
+  /* 过渡 */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 600ms ease-out;
+
+  /* 毛玻璃 */
+  --glass-bg: rgba(8, 15, 26, 0.75);
+  --glass-blur: 12px;
+
+  /* 导航高度 */
+  --navbar-height: 64px;
+}
+
+/* 移动端间距调整 */
+@media (max-width: 639px) {
+  :root {
+    --spacing-section: 64px;
+    --spacing-content-padding: 16px;
+    --navbar-height: 56px;
+  }
+}
