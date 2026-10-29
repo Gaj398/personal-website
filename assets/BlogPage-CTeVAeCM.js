@@ -1,0 +1,1 @@
+import{j as e}from"./index-CAJkLG0c.js";import"./vendor-react-DFMCzl4U.js";function a(){return e.jsxs("div",{className:"section-container",style:{paddingTop:"calc(var(--navbar-height) + 48px)"},children:[e.jsx("h1",{className:"section-title mb-12",children:"技术博客"}),e.jsx("p",{className:"text-text-secondary",children:"博客功能即将上线，敬请期待..."})]})}export{a as default};
