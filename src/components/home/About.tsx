@@ -1,6 +1,8 @@
-/** 个人介绍区块 */
+import { loadProfile } from '@/data/profile';
+
+/** 个人介绍区块（动态读取后台配置） */
 export function About() {
-  const highlights = ['5年前端开发', 'React', 'TypeScript', '全栈', '开源贡献者'];
+  const profile = loadProfile();
 
   return (
     <section
@@ -14,18 +16,15 @@ export function About() {
 
       <div className="mx-auto max-w-3xl space-y-6">
         {/* 简介段落 */}
-        <p className="leading-relaxed text-text-secondary">
-          拥有 5 年前端开发经验，专注于 React 生态和现代 Web 技术。
-          热衷于构建高性能、无障碍友好的用户界面，相信好的代码应该像好的设计一样优雅。
-        </p>
-        <p className="leading-relaxed text-text-secondary">
-          工作之余喜欢写技术博客、参与开源项目，分享所学所得。
-          擅长将复杂的技术概念转化为清晰易懂的实现方案。
-        </p>
+        {profile.aboutIntro.map((paragraph, i) => (
+          <p key={i} className="leading-relaxed text-text-secondary">
+            {paragraph}
+          </p>
+        ))}
 
         {/* 关键标签 */}
         <div className="flex flex-wrap gap-3 pt-4">
-          {highlights.map((tag) => (
+          {profile.skills.map((tag) => (
             <span key={tag} className="tag">
               {tag}
             </span>

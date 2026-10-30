@@ -1,5 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface NavItem {
   label: string;
@@ -93,17 +94,28 @@ export function MobileMenu({ isOpen, onClose, navItems, onNavClick }: MobileMenu
       {/* 导航列表 */}
       <nav aria-label="移动端导航">
         <ul className="flex flex-col items-center gap-6">
-          {navItems.map((item) => (
-            <li key={item.section}>
-              <a
-                href={item.href}
-                onClick={(e) => handleClick(e, item.href)}
-                className="text-2xl font-semibold text-text-primary transition-colors hover:text-accent"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const isAnchor = item.href.startsWith('/#');
+            const linkClass =
+              'text-2xl font-semibold text-text-primary transition-colors hover:text-accent';
+            return (
+              <li key={item.section}>
+                {isAnchor ? (
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleClick(e, item.href)}
+                    className={linkClass}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link to={item.href} onClick={onClose} className={linkClass}>
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </div>

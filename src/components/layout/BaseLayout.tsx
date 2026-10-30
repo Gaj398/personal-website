@@ -13,7 +13,7 @@ export function BaseLayout({ children }: BaseLayoutProps) {
       {/* 无障碍：跳过导航链接 */}
       <a
         href="#main-content"
-        className="sr-only-focusable fixed top-4 left-4 z-50 rounded-button bg-accent px-4 py-2 font-semibold text-bg-primary"
+        className="sr-only-focusable fixed top-4 left-4 z-50 rounded-button bg-accent px-4 py-2 font-semibold text-white"
       >
         跳到主内容
       </a>

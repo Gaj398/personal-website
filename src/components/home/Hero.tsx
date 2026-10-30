@@ -1,7 +1,9 @@
 import { ChevronDown, Download } from 'lucide-react';
+import { loadProfile } from '@/data/profile';
 
-/** Hero 首屏 —— 页面第一屏视觉焦点 */
+/** Hero 首屏 —— 页面第一屏视觉焦点（个人简介动态读取） */
 export function Hero() {
+  const profile = loadProfile();
   const handleScrollToProjects = () => {
     const el = document.getElementById('projects');
     if (el) {
@@ -21,11 +23,11 @@ export function Hero() {
         {/* 头像 */}
         <div className="mb-8 inline-block">
           <div className="relative h-[120px] w-[120px] overflow-hidden rounded-full sm:h-[96px] sm:w-[96px] lg:h-[120px] lg:w-[120px]">
-            {/* 微光描边动画 */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent to-accent-purple opacity-75 blur-sm" />
+            {/* 玫瑰金细环描边动画 */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent to-accent-purple opacity-60 blur-[2px]" />
             <div className="absolute inset-[3px] rounded-full bg-bg-primary" />
-            <div className="absolute inset-[3px] flex items-center justify-center rounded-full bg-bg-card text-3xl font-bold text-accent">
-              S
+            <div className="absolute inset-[3px] flex items-center justify-center rounded-full bg-bg-card text-3xl font-bold text-accent font-serif">
+              {profile.name.slice(0, 1)}
             </div>
           </div>
         </div>
@@ -33,14 +35,14 @@ export function Hero() {
         {/* 姓名 */}
         <h1
           id="hero-heading"
-          className="mb-4 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
+          className="mb-4 font-serif text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
         >
-          你好，我是<span className="text-gradient">开发者</span>
+          你好，我是<span className="text-gradient">{profile.name}</span>
         </h1>
 
         {/* 副标题 */}
-        <p className="mx-auto mb-8 max-w-xl text-base text-text-secondary sm:text-lg lg:text-xl">
-          全栈工程师 · 专注于 React 生态与现代 Web 技术
+        <p className="mx-auto mb-8 max-w-xl text-base font-medium text-text-secondary sm:text-lg lg:text-xl">
+          {profile.subtitle}
         </p>
 
         {/* CTA 按钮 */}

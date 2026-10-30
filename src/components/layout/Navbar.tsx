@@ -10,7 +10,9 @@ const NAV_ITEMS = [
   { label: '技能', href: '/#skills', section: 'skills' },
   { label: '项目', href: '/#projects', section: 'projects' },
   { label: '博客', href: '/blog', section: 'blog' },
+  { label: '留言板', href: '/guestbook', section: 'guestbook' },
   { label: '联系', href: '/#contact', section: 'contact' },
+  { label: '管理', href: '/admin', section: 'admin' },
 ];
 
 /** 吸顶毛玻璃导航栏 */
@@ -75,26 +77,37 @@ export function Navbar() {
         {/* 桌面端导航项 */}
         <ul className="hidden items-center gap-1 sm:flex">
           {NAV_ITEMS.map((item) => {
-            const isExternal = item.href.startsWith('/#');
+            const isAnchor = item.href.startsWith('/#');
             const isActive =
               item.href === '/'
                 ? location.pathname === '/'
                 : location.pathname.startsWith(item.href.replace('/#', '/'));
+            const baseClass = `rounded-button px-4 py-2 text-sm font-medium transition-colors ${
+              isActive
+                ? 'text-accent'
+                : 'text-text-secondary hover:text-text-primary'
+            }`;
 
             return (
               <li key={item.section}>
-                <a
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`rounded-button px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'text-accent'
-                      : 'text-text-secondary hover:text-text-primary'
-                  }`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {item.label}
-                </a>
+                {isAnchor ? (
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={baseClass}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={baseClass}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                )}
               </li>
             );
           })}

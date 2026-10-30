@@ -11,16 +11,16 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // 设计 Token —— 颜色体系
-        'bg-primary': '#080F1A',
-        'bg-secondary': '#0D1321',
-        'bg-card': '#111827',
-        'text-primary': '#E6EAF2',
-        'text-secondary': '#94A3B8',
-        accent: '#38BDF8',
-        'accent-purple': '#818CF8',
-        success: '#34D399',
-        border: 'rgba(230, 234, 242, 0.08)',
+        // 设计 Token —— 雾蓝灰 × 玫瑰金（浅色温柔高级主题）
+        'bg-primary': '#F3F5F8',
+        'bg-secondary': '#EAEEF4',
+        'bg-card': '#FFFFFF',
+        'text-primary': '#2B313B',
+        'text-secondary': '#5B6472',
+        accent: '#B76E79',
+        'accent-purple': '#D9A0A8',
+        success: '#4C9F7E',
+        border: 'rgba(43, 49, 59, 0.08)',
       },
       maxWidth: {
         content: '1200px',
@@ -31,7 +31,8 @@ const config: Config = {
         modal: '20px',
       },
       fontFamily: {
-        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'system-ui', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Noto Serif SC', 'Songti SC', 'STSong', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       animation: {
@@ -54,15 +55,15 @@ const config: Config = {
           '50%': { transform: 'translateY(-4px)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 10px rgba(56, 189, 248, 0.1)' },
-          '50%': { boxShadow: '0 0 20px rgba(56, 189, 248, 0.25)' },
+          '0%, 100%': { boxShadow: '0 0 10px rgba(183, 110, 121, 0.08)' },
+          '50%': { boxShadow: '0 0 20px rgba(183, 110, 121, 0.22)' },
         },
       },
       boxShadow: {
-        card: '0 4px 6px -1px rgba(0, 0, 0, 0.3)',
-        'card-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
-        navbar: '0 1px 3px rgba(0, 0, 0, 0.2)',
-        glow: '0 0 20px rgba(56, 189, 248, 0.15)',
+        card: '0 4px 6px -1px rgba(43, 49, 59, 0.05)',
+        'card-hover': '0 12px 24px -8px rgba(43, 49, 59, 0.12)',
+        navbar: '0 1px 3px rgba(43, 49, 59, 0.05)',
+        glow: '0 0 18px rgba(183, 110, 121, 0.18)',
       },
     },
   },

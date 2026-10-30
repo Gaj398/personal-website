@@ -59,7 +59,7 @@
   .card:hover {
     @apply -translate-y-1;
     box-shadow: var(--shadow-card-hover);
-    border-color: rgba(56, 189, 248, 0.2);
+    border-color: rgba(183, 110, 121, 0.25);
   }
 
   /* 主按钮 */
@@ -93,7 +93,7 @@
 
   /* 区块标题 */
   .section-title {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary;
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary font-serif;
     @apply pl-4 border-l-4 border-accent;
   }
 

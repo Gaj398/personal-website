@@ -6,7 +6,8 @@ import './styles/globals.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* GitHub Pages 部署在 /personal-website/ 子路径，需设 basename */}
+    <BrowserRouter basename="/personal-website/">
       <App />
     </BrowserRouter>
   </StrictMode>,

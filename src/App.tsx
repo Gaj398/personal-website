@@ -6,6 +6,8 @@ import { BaseLayout } from '@/components/layout/BaseLayout';
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const BlogPage = lazy(() => import('@/pages/BlogPage'));
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
+const GuestBookPage = lazy(() => import('@/pages/GuestBookPage'));
+const AdminPage = lazy(() => import('@/pages/AdminPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 /** 页面加载占位 */
@@ -25,6 +27,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/guestbook" element={<GuestBookPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
